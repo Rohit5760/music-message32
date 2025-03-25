@@ -8,10 +8,10 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background-image: url('Background.jpg'); /* Change this to your image filename */
+            background-image: url('Background.jpg'); /* Ensure filename matches */
             background-size: cover;
             background-position: center;
-            color: light green; /* Change font color if needed */
+            color: lightgreen; /* Fixed color syntax */
             height: 100vh;
             display: flex;
             align-items: center;
@@ -40,7 +40,10 @@
 
     <script>
         document.addEventListener('click', function() {
-            document.getElementById('bg-music').play();
+            let audio = document.getElementById('bg-music');
+            if (audio.paused) {
+                audio.play();
+            }
         });
     </script>
 
