@@ -11,9 +11,40 @@
             background-image: url('Background.jpg'); /* Ensure filename matches */
             background-size: cover;
             background-position: center;
-            color: lightgreen; /* Fixed color syntax */
+            color: black; /* Fixed color syntax */
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction
+            flex-direction: column;
+        }
+        .message {
+            font-size: 2em;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5); /* Slight background for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message">
+        Hello, Good Afternoon!
+    </div>
+
+    <audio id="bg-music" autoplay loop muted playsinline>
+        <source src="song.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        window.onload = function () {
+            let audio = document.getElementById('bg-music');
+            audio.muted = false; // Unmute after autoplay starts
+            audio.play().catch(error => console.log("Autoplay failed:", error));
+        };
+    </script>
+
+</body>
+</html>
