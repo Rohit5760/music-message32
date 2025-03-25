@@ -8,27 +8,40 @@
         body {
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background-image: url('Background.jpg'); /* Ensure filename matches */
-            background-size: contain; /* Ensures the full image is visible */
-            background-repeat: no-repeat; /* Prevents tiling */
-            background-position: center top; /* Adjusts image alignment */
-            background-color: lightgreen; /* Adds a fallback background color */
+            background-color: black; /* Fallback */
             height: 100vh;
+            width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            overflow: hidden; /* Prevent scrolling */
         }
+
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('Background.jpg') no-repeat center;
+            background-size: contain; /* Ensure full image is visible */
+            z-index: -1;
+        }
+
         .message {
             font-size: 2em;
             font-weight: bold;
             background: rgba(0, 0, 0, 0.5); /* Slight background for readability */
             padding: 20px;
             border-radius: 10px;
+            color: lightgreen;
         }
     </style>
 </head>
 <body>
+
+    <div class="bg-container"></div> <!-- Background image container -->
 
     <div class="message">
         Hello, Good Afternoon!
@@ -42,8 +55,16 @@
     <script>
         window.onload = function () {
             let audio = document.getElementById('bg-music');
-            audio.muted = false; // Unmute after autoplay starts
-            audio.play().catch(error => console.log("Autoplay failed:", error));
+           
+            // Small delay to allow autoplay
+            setTimeout(() => {
+                audio.muted = false;
+                let playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => console.log("Autoplay failed:", error));
+                }
+            }, 500); // Small delay helps bypass restrictions
         };
     </script>
 
