@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Message Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-image: url('background.jpg'); /* Change this to your image filename */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Change font color if needed */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .message {
+            font-size: 2em;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5); /* Slight background for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message">
+        Welcome to My Custom Page!
+    </div>
+
+    <audio id="bg-music" autoplay loop>
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            document.getElementById('bg-music').play();
+        });
+    </script>
+
+</body>
+</html>
