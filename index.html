@@ -16,36 +16,4 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-        }
-        .message {
-            font-size: 2em;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5); /* Slight background for readability */
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="message">
-        Hello, Good Afternoon!
-    </div>
-
-    <audio id="bg-music" autoplay loop>
-        <source src="song.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
-    <script>
-        document.addEventListener('click', function() {
-            let audio = document.getElementById('bg-music');
-            if (audio.paused) {
-                audio.play();
-            }
-        });
-    </script>
-
-</body>
-</html>
+            flex-direction
